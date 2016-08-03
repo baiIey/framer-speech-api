@@ -4,7 +4,7 @@ The [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech
 
 Its two parts, SpeechRecognition (Asynchronous Speech Recognition) and SpeechSynthesis (Text-to-Speech) allow designers to prototype speech-based conversational UIs like [Google Now](https://www.google.com/search/about/learn-more/now/), [Apple's Siri](http://www.apple.com/ios/siri/), and [Amazon Alexa](https://developer.amazon.com/alexa).
 
-The Web Speech API is flagged as experimental features in Chrome and Firefox, and is supported in [Chrome >33](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility).
+The Web Speech API is flagged as an experimental feature in Chrome and Firefox, and is supported in [Chrome Stable 33 and greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility).
 
 
 ###Note about Framer Studio
