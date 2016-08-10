@@ -1,5 +1,16 @@
 #Web Speech API in Framer.js
 
+###What you’ll learn
+* How to connect to the Web Speech API
+* How to access your device’s audio input
+* How to access your device’s voice synthesizer
+
+###What you’ll need
+* The sample code
+* Framer Studio (or Framer.js and a text editor)
+* Basic knowledge of HTML, CSS, and Javascript (CoffeeScript)
+* Chrome >33
+
 The [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) provides web apps the ability to recognize voices, transform the audio input into strings, and control the synthesis voices available on the device.
 
 Its two parts, SpeechRecognition (Asynchronous Speech Recognition) and SpeechSynthesis (Text-to-Speech) allow designers to prototype speech-based conversational UIs like [Google Now](https://www.google.com/search/about/learn-more/now/), [Apple's Siri](http://www.apple.com/ios/siri/), and [Amazon Alexa](https://developer.amazon.com/alexa).

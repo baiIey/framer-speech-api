@@ -1,4 +1,12 @@
 ###
+Framer Studio will likely give the error below and you may not be able to interact with your prototype's preview in the IDE.
+
+TypeError: undefined is not a constructor (evaluating 'new SpeechRecognition')
+
+To get around this, we'll use the Open in Browser or Copy Link options under Framer Studio's Mirror button and use Chrome 33 or greater when interacting with our prototypes.
+###
+
+###
 Variables
 ###
 animationDuration = 0.5
