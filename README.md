@@ -1,11 +1,11 @@
 #Web Speech API in Framer.js
 
-###What you’ll learn
+### What you’ll learn
 * How to connect to the Web Speech API
 * How to access your device’s audio input
 * How to access your device’s voice synthesizer
 
-###What you’ll need
+### What you’ll need
 * The sample code
 * Framer Studio (or Framer.js and a text editor)
 * Basic knowledge of HTML, CSS, and Javascript (CoffeeScript)
@@ -18,7 +18,7 @@ Its two parts, SpeechRecognition (Asynchronous Speech Recognition) and SpeechSyn
 The Web Speech API is flagged as an experimental feature in Chrome and Firefox, and is supported in [Chrome Stable 33 and greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility).
 
 
-###Note about Framer Studio
+### Note about Framer Studio
 Framer Studio, the official coding environment of Framer.js, is a Safari browser application, which [doesn't fully support](http://caniuse.com/#feat=speech-recognition) the SpeechRecoginition interface of this experimental API. (Safari supports the SpeechSynthesis interface, however.) Framer Studio will likely give the error below and you may not be able to interact with your prototype's preview in the IDE.
 
 ```
@@ -27,13 +27,13 @@ TypeError: undefined is not a constructor (evaluating 'new SpeechRecognition')
 
 To get around this, we'll use the **Open in Browser** or **Copy Link** options under Framer Studio's **Mirror** button and use [Chrome 33 or greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility) when interacting with our prototypes.
 
-###SpeechRecognition Prototype
+### SpeechRecognition Prototype
 You can [interact](http://share.framerjs.com/jlralchs6vaz/) with the sample prototype of Google's iOS app--using Chrome--or clone this repo. Your browser may request permission to use the microphone.
 
  
 ![image](googlenow-app-framer.gif)
 
-###SpeechRecognition Interface
+### SpeechRecognition Interface
 
 The [SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) interface allows us to recognize speech and respond accordingly. PromptWorks' piece on [Speech Recognition in the Browser](https://www.promptworks.com/blog/speech-recoginition-in-the-browser?utm_source=codropscollective) provided the snippet below as JavaScript, which I converted to CoffeeScript (and then Framer.js) with [js2coffee](http://js2.coffee/).
 
@@ -90,7 +90,7 @@ recognizer.onresult = (event) ->
   return	
 ```
 
-###SpeechSynthesis Interface
+### SpeechSynthesis Interface
 The [SpeechSynthesis](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) interface provides controls and methods for the synthesis voices available on the device. [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis#Browser_compatibility) is better with this interface, with support both in Safari and on several mobile browsers.
 
 Snippets from [PromptWorks](https://www.promptworks.com/blog/speech-recoginition-in-the-browser?utm_source=codropscollective).
