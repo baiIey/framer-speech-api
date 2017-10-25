@@ -3,7 +3,14 @@ Framer Studio will likely give the error below and you may not be able to intera
 
 TypeError: undefined is not a constructor (evaluating 'new SpeechRecognition')
 
-To get around this, we'll use the Open in Browser or Copy Link options under Framer Studio's Mirror button and use Chrome 33 or greater when interacting with our prototypes.
+To get around this, we'll run `python -m SimpleHTTPServer [port]` in the directory of the prototype's index.html file and use [Chrome 33 or greater] when interacting with our prototypes. (`SpeechRecognition` doesn't trigger the microphone in Framer Studio's-generated server.) 
+
+1. Open Terminal
+2. `cd` into `speech-recognition.framer`
+4. Type: `python -m SimpleHTTPServer 8090`
+5. In Chrome, navigate to [http://127.0.0.1:8090/](http://127.0.0.1:8090/)
+
+This will now show the prototype in the current working directory.
 ###
 
 ###

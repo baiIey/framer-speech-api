@@ -25,12 +25,19 @@ Framer Studio, the official coding environment of Framer.js, is a Safari browser
 TypeError: undefined is not a constructor (evaluating 'new SpeechRecognition')
 ```
 
-To get around this, we'll use the **Open in Browser** or **Copy Link** options under Framer Studio's **Mirror** button and use [Chrome 33 or greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility) when interacting with our prototypes.
+To get around this, we'll run `python -m SimpleHTTPServer [port]` in the directory of the prototype's index.html file and use [Chrome 33 or greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility) when interacting with our prototypes. (`SpeechRecognition` doesn't trigger the microphone in Framer Studio's-generated server.) 
+
+1. Open Terminal
+2. `cd` into `speech-recognition.framer`
+4. Type: `python -m SimpleHTTPServer 8090`
+5. In Chrome, navigate to [http://127.0.0.1:8090/](http://127.0.0.1:8090/)
+
+This will now show the prototype in the current working directory.
 
 ### SpeechRecognition Prototype
 You can [interact](http://share.framerjs.com/jlralchs6vaz/) with the sample prototype of Google's iOS app--using Chrome--or clone this repo. Your browser may request permission to use the microphone.
 
- 
+
 ![image](googlenow-app-framer.gif)
 
 ### SpeechRecognition Interface
@@ -73,13 +80,13 @@ Now we can do any number of things with the audio, which is now a string. For ex
 textBox = new Layer
 	backgroundColor: "none"
 	color: "#969696"
-	html: "Speak now"	
-	
+	html: "Speak now"
+
 textBox.style =
 	"fontSize" : "50px"
 	"fontWeight" : "300"
 	"textAlign" : "left"
-	"fontFamily": "Arial"	
+	"fontFamily": "Arial"
 
 recognizer.onresult = (event) ->
   result = event.results[event.resultIndex]
@@ -87,7 +94,7 @@ recognizer.onresult = (event) ->
     textBox.html = result[0].transcript
   else
     textBox.html = result[0].transcript
-  return	
+  return
 ```
 
 ### SpeechSynthesis Interface
