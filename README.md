@@ -1,6 +1,6 @@
 # Web Speech API in Framer.js
 
-[Framer.js iOS Google Now prototype for iPhone 7](_img/google-now-framer-gray.gif)
+![Framer.js iOS Google Now prototype for iPhone 7](_img/google-now-framer-gray.gif)
 
 ### What you’ll learn
 * How to connect to the Web Speech API
