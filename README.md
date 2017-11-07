@@ -1,5 +1,7 @@
 # Web Speech API in Framer.js
 
+[Framer.js iOS Google Now prototype for iPhone 7](_img/google-now-framer-gray.gif)
+
 ### What you’ll learn
 * How to connect to the Web Speech API
 * How to access your device’s audio input
@@ -17,15 +19,20 @@ Its two parts, SpeechRecognition (Asynchronous Speech Recognition) and SpeechSyn
 
 The Web Speech API is flagged as an experimental feature in Chrome and Firefox, and is supported in [Chrome Stable 33 and greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility).
 
+### SpeechRecognition Prototype
+>**tl;dr** This prototype will not function in Framer Studio.
 
-### Note about Framer Studio
+You can [interact](http://share.framerjs.com/jlralchs6vaz/) with the sample prototype of Google's iOS app—using Chrome—or clone this repo. Your browser may request permission to use the microphone.
+
 Framer Studio, the official coding environment of Framer.js, is a Safari browser application, which [doesn't fully support](http://caniuse.com/#feat=speech-recognition) the SpeechRecoginition interface of this experimental API. (Safari supports the SpeechSynthesis interface, however.) Framer Studio will likely give the error below and you may not be able to interact with your prototype's preview in the IDE.
 
 ```
 TypeError: undefined is not a constructor (evaluating 'new SpeechRecognition')
 ```
 
-To get around this, we'll run `python -m SimpleHTTPServer [port]` in the directory of the prototype's index.html file and use [Chrome 33 or greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility) when interacting with our prototypes. (`SpeechRecognition` doesn't trigger the microphone in Framer Studio's-generated server.) 
+![Framer Studio errors](_img/google-now-framer-studio.png)
+
+To get around this, we'll run `python -m SimpleHTTPServer [port]` in the directory of the prototype's index.html file and use [Chrome 33 or greater](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#Browser_compatibility) when interacting with our prototypes. (`SpeechRecognition` doesn't trigger the microphone in Framer Studio's-generated server.)
 
 1. Open Terminal
 2. `cd` into `speech-recognition.framer`
@@ -34,11 +41,12 @@ To get around this, we'll run `python -m SimpleHTTPServer [port]` in the directo
 
 This will now show the prototype in the current working directory.
 
-### SpeechRecognition Prototype
-You can [interact](http://share.framerjs.com/jlralchs6vaz/) with the sample prototype of Google's iOS app--using Chrome--or clone this repo. Your browser may request permission to use the microphone.
+![Framer in Chrome browser](_img/google-now-chrome.png)
 
 
-![image](googlenow-app-framer.gif)
+
+
+
 
 ### SpeechRecognition Interface
 
