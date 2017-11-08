@@ -26,7 +26,7 @@ You can [interact](http://share.framerjs.com/jlralchs6vaz/) with the sample prot
 
 Framer Studio, the official coding environment of Framer.js, is a Safari browser application, which [doesn't fully support](http://caniuse.com/#feat=speech-recognition) the SpeechRecoginition interface of this experimental API. (Safari supports the SpeechSynthesis interface, however.) Framer Studio will likely give the error below and you may not be able to interact with your prototype's preview in the IDE.
 
-```
+```coffeescript
 TypeError: undefined is not a constructor (evaluating 'new SpeechRecognition')
 ```
 
@@ -36,8 +36,8 @@ To get around this, we'll run `python -m SimpleHTTPServer [port]` in the directo
 
 1. Open Terminal
 2. `cd` into `speech-recognition.framer`
-4. Type: `python -m SimpleHTTPServer 8090`
-5. In Chrome, navigate to [http://127.0.0.1:8090/](http://127.0.0.1:8090/)
+3. Type: `python -m SimpleHTTPServer 8090`
+4. In Chrome, navigate to [http://127.0.0.1:8090/](http://127.0.0.1:8090/)
 
 This will now show the prototype in the current working directory.
 
@@ -56,7 +56,7 @@ You can paste this in Framer Studio and open it with Chrome.
 
 Your browser may request permission to use the microphone.
 
-```
+```coffeescript
 # This API is currently prefixed in Chrome
 SpeechRecognition = window.SpeechRecognition or window.webkitSpeechRecognition
 
@@ -84,7 +84,7 @@ recognizer.start()
 
 Now we can do any number of things with the audio, which is now a string. For example, you can pass the output as HTML to a layer.
 
-```
+```coffeescript
 textBox = new Layer
 	backgroundColor: "none"
 	color: "#969696"
@@ -110,13 +110,13 @@ The [SpeechSynthesis](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSyn
 
 Snippets from [PromptWorks](https://www.promptworks.com/blog/speech-recoginition-in-the-browser?utm_source=codropscollective).
 
-```
+```coffeescript
 speechSynthesis.speak new SpeechSynthesisUtterance('Hello world.')
 ```
 
 Incrementing `utterance.voice = voices[1]` should allow you to cycle through your device's synthesis voices.
 
-```
+```coffeescript
 voices = speechSynthesis.getVoices()
 utterance = new SpeechSynthesisUtterance('Hello world.')
 utterance.voice = voices[1]
