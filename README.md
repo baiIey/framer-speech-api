@@ -123,6 +123,18 @@ utterance.voice = voices[1]
 speechSynthesis.speak utterance
 ```
 
+---
+**NOTE:** While the Framer Classic application is no longer available, you can still view and even edit your Framer Classic files. These files, which use the ".framer" extension, are self-contained and can be viewed by running a web server in the folder.
+
+To do this, you can follow these steps:
+
+1. Make a copy of the Framer Classic file.
+2. Remove the .framer extension at the end of the filename. This will turn it into a regular folder.
+3. Pick the folder you created, start the webserver, and open it in your browser.
+
+To make changes to your Classic files, you can modify the "app.coffee" file inside the folder.
+
+---
 
 ### References
 * PromptWorks - [Speech Recognition in the Browser](https://www.promptworks.com/blog/speech-recoginition-in-the-browser?utm_source=codropscollective)
