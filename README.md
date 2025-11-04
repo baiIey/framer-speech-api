@@ -10,7 +10,7 @@
 ### What you’ll need
 * The sample code
 * Framer Studio (or Framer.js and a text editor)
-* Basic knowledge of HTML, CSS, and Javascript (CoffeeScript)
+* Basic knowledge of HTML, CSS, and JavaScript
 * Chrome >33
 
 The [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) provides web apps the ability to recognize voices, transform the audio input into strings, and control the synthesis voices available on the device.
@@ -50,59 +50,57 @@ This will now show the prototype in the current working directory.
 
 ### SpeechRecognition Interface
 
-The [SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) interface allows us to recognize speech and respond accordingly. PromptWorks' piece on [Speech Recognition in the Browser](https://www.promptworks.com/blog/speech-recoginition-in-the-browser?utm_source=codropscollective) provided the snippet below as JavaScript, which I converted to CoffeeScript (and then Framer.js) with [js2coffee](http://js2.coffee/).
+The [SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) interface allows us to recognize speech and respond accordingly. PromptWorks' piece on [Speech Recognition in the Browser](https://www.promptworks.com/blog/speech-recoginition-in-the-browser?utm_source=codropscollective) provided the snippet below as JavaScript.
 
-You can paste this in Framer Studio and open it with Chrome.
+You can paste this in Framer Studio (or run it in the browser build) and open it with Chrome.
 
 Your browser may request permission to use the microphone.
 
-```coffeescript
-# This API is currently prefixed in Chrome
-SpeechRecognition = window.SpeechRecognition or window.webkitSpeechRecognition
+```javascript
+// This API is currently prefixed in Chrome
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-# Create a new recognizer
-recognizer = new SpeechRecognition
+// Create a new recognizer
+const recognizer = new SpeechRecognition();
 
-# Start producing results before the person has finished speaking
-recognizer.interimResults = true
+// Start producing results before the person has finished speaking
+recognizer.interimResults = true;
 
-# Set the language of the recognizer
-recognizer.lang = 'en-US'
+// Set the language of the recognizer
+recognizer.lang = "en-US";
 
-# Define a callback to process results
-recognizer.onresult = (event) ->
-  result = event.results[event.resultIndex]
-  if result.isFinal
-    print result[0].transcript
-  else
-    print result[0].transcript
-  return
+// Define a callback to process results
+recognizer.onresult = event => {
+  const result = event.results[event.resultIndex];
+  if (!result || !result[0]) return;
+  console.log(result[0].transcript);
+};
 
-# Start listening...
-recognizer.start()
+// Start listening...
+recognizer.start();
 ```
 
 Now we can do any number of things with the audio, which is now a string. For example, you can pass the output as HTML to a layer.
 
-```coffeescript
-textBox = new Layer
-	backgroundColor: "none"
-	color: "#969696"
-	html: "Speak now"
+```javascript
+const textBox = new Layer({
+	backgroundColor: "none",
+	color: "#969696",
+	html: "Speak now",
+});
 
-textBox.style =
-	"fontSize" : "50px"
-	"fontWeight" : "300"
-	"textAlign" : "left"
-	"fontFamily": "Arial"
+textBox.style = {
+	fontSize: "50px",
+	fontWeight: "300",
+	textAlign: "left",
+	fontFamily: "Arial",
+};
 
-recognizer.onresult = (event) ->
-  result = event.results[event.resultIndex]
-  if result.isFinal
-    textBox.html = result[0].transcript
-  else
-    textBox.html = result[0].transcript
-  return
+recognizer.onresult = event => {
+	const result = event.results[event.resultIndex];
+	if (!result || !result[0]) return;
+	textBox.html = result[0].transcript;
+};
 ```
 
 ### SpeechSynthesis Interface
@@ -110,17 +108,17 @@ The [SpeechSynthesis](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSyn
 
 Snippets from [PromptWorks](https://www.promptworks.com/blog/speech-recoginition-in-the-browser?utm_source=codropscollective).
 
-```coffeescript
-speechSynthesis.speak new SpeechSynthesisUtterance('Hello world.')
+```javascript
+speechSynthesis.speak(new SpeechSynthesisUtterance("Hello world."));
 ```
 
 Incrementing `utterance.voice = voices[1]` should allow you to cycle through your device's synthesis voices.
 
-```coffeescript
-voices = speechSynthesis.getVoices()
-utterance = new SpeechSynthesisUtterance('Hello world.')
-utterance.voice = voices[1]
-speechSynthesis.speak utterance
+```javascript
+const voices = speechSynthesis.getVoices();
+const utterance = new SpeechSynthesisUtterance("Hello world.");
+utterance.voice = voices[1];
+speechSynthesis.speak(utterance);
 ```
 
 ---
@@ -132,7 +130,7 @@ To do this, you can follow these steps:
 2. Remove the .framer extension at the end of the filename. This will turn it into a regular folder.
 3. Pick the folder you created, start the webserver, and open it in your browser.
 
-To make changes to your Classic files, you can modify the "app.coffee" file inside the folder.
+To make changes to your Classic files, you can modify the "app.js" file inside the folder.
 
 ---
 
