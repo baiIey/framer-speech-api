@@ -87,7 +87,6 @@ function toIdle() {
 	uiState = "idle";
 	device.classList.remove("listening");
 	device.classList.remove("speaking");
-	currentTranscript = "";
 	if (closeButton) closeButton.disabled = true;
 	if (webButton) webButton.disabled = true;
 }
