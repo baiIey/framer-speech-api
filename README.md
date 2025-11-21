@@ -43,9 +43,15 @@ This will now show the prototype in the current working directory.
 
 ![Framer in Chrome browser](_img/google-now-chrome.png)
 
+### Motion port
 
+The `speech-recognition-motion/` directory contains a Motion-powered rebuild that mirrors the Framer prototype, including assets and interactions. Run it with any static server (Chrome 33+ is still required for the Web Speech API):
 
-
+```
+cd speech-recognition-motion
+python3 -m http.server 8090
+# Visit http://127.0.0.1:8090 in Chrome and allow microphone access.
+```
 
 
 ### SpeechRecognition Interface
